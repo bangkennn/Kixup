@@ -2,12 +2,138 @@
     --cream-color: #f5f5dc;
     --primary-color: #8b7355;
     --secondary-color: #d2b48c;
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Poppins', sans-serif;
 }
 
 body {
     background-color: var(--cream-color);
-    font-family: 'Arial', sans-serif;
+    font-family: var(--body-font);
     color: #333;
+    font-weight: 300;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--heading-font);
+    font-weight: 600;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-family: var(--body-font);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Product Cards */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.product-card .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card .card-title {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-card .card-text {
+    font-family: var(--body-font);
+    font-weight: 300;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.product-card .price {
+    font-family: var(--body-font);
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
+
+.product-card .btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Form Elements */
+.form-control {
+    font-family: var(--body-font);
+    font-weight: 300;
+}
+
+.btn {
+    font-family: var(--body-font);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cream-color);
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    font-weight: 300;
+}
+
+footer a {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+footer .social-icons {
+    font-size: 1.2rem;
 }
 
 /* Navbar Styles */
@@ -46,17 +172,20 @@ body {
     align-items: flex-end;
     justify-content: center;
     padding-top: 100px;
+    overflow: hidden;
 }
 
 .hero-image {
     max-width: 100%;
     height: auto;
     opacity: 0;
-    transition: opacity 1.5s ease-out;
+    transform: translateY(-50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
 .animate-image {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .animate-text {
@@ -67,9 +196,11 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateX(-30px);
     }
     to {
         opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -85,6 +216,22 @@ body {
     animation-delay: 0.9s;
 }
 
+/* Animasi untuk gambar hero */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-image {
+    animation: slideDown 1.5s ease-out forwards;
+}
+
 /* Parallax effect for hero image */
 .hero-image {
     transition: transform 0.3s ease-out;
@@ -98,25 +245,6 @@ body {
 .products-section {
     background-color: white;
     padding: 100px 0;
-}
-
-.product-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    margin-bottom: 30px;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
 /* About Section with Parallax */
@@ -172,21 +300,6 @@ body {
     border-color: var(--secondary-color);
 }
 
-/* Footer */
-footer {
-    background-color: var(--cream-color);
-    color: var(--primary-color);
-}
-
-footer a {
-    color: var(--primary-color);
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--secondary-color);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
@@ -195,5 +308,17 @@ footer a:hover {
     
     .about-section {
         background-attachment: scroll;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
     }
 } 

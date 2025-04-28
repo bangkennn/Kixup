@@ -2,24 +2,24 @@
 const products = [
     {
         id: 1,
-        name: "Produk 1",
-        price: 150000,
-        image: "images/product1.jpg",
-        description: "Deskripsi produk 1"
+        name: "Nike Air Flight 89",
+        price: 1299000,
+        image: "images/sepatu1.png",
+        description: "Sneakers casual dengan desain modern dan nyaman digunakan sehari-hari. Tersedia dalam berbagai ukuran."
     },
     {
         id: 2,
-        name: "Produk 2",
-        price: 200000,
-        image: "images/product2.jpg",
-        description: "Deskripsi produk 2"
+        name: "Air Jordan 11 Retro",
+        price: 1799000,
+        image: "images/sepatu2.png",
+        description: "Sepatu running dengan teknologi terbaru untuk kenyamanan maksimal saat berolahraga."
     },
     {
         id: 3,
-        name: "Produk 3",
-        price: 250000,
-        image: "images/product3.jpg",
-        description: "Deskripsi produk 3"
+        name: "Jordan Legacy 312 (High)",
+        price: 1099000,
+        image: "images/sepatu3.png",
+        description: "Sepatu formal dengan bahan berkualitas tinggi, cocok untuk acara resmi dan kantor."
     }
 ];
 
@@ -37,10 +37,10 @@ function displayProducts() {
         productCard.innerHTML = `
             <div class="product-card">
                 <img src="${product.image}" alt="${product.name}">
-                <div class="card-body p-3">
+                <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
-                    <p class="card-text">Rp ${product.price.toLocaleString()}</p>
+                    <p class="price">Rp ${product.price.toLocaleString('id-ID')}</p>
                     <button class="btn btn-primary add-to-cart" data-id="${product.id}">
                         Tambah ke Keranjang
                     </button>
